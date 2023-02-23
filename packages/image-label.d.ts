@@ -5,18 +5,21 @@ interface IContainer {
     height?: number;
 }
 interface IPoint {
-    width?: number;
+    size?: number;
     color?: string;
 }
 type Point = {
     x: number;
     y: number;
 };
+interface ILine {
+    width?: number;
+    color?: string;
+}
 interface IImageLabel {
     url: string;
     containerProps?: IContainer;
-    lineWidth?: number;
-    lineColor?: string;
+    lineProps?: ILine;
     pointProps?: IPoint;
     getPoints?: (points: Point[]) => void;
 }

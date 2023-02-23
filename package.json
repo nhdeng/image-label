@@ -1,7 +1,7 @@
 {
   "name": "@dengnanhao/image-label",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "author": "dengnanhao <19856535725@163.com>",
   "scripts": {
@@ -13,6 +13,7 @@
     "dist"
   ],
   "dependencies": {
+    "@dengnanhao/image-label": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

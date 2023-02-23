@@ -7,7 +7,7 @@ interface IContainer {
 }
 
 interface IPoint {
-  width?: number;
+  size?: number;
   color?: string;
 }
 
@@ -16,11 +16,15 @@ type Point = {
   y: number;
 };
 
+interface ILine {
+  width?: number;
+  color?: string;
+}
+
 interface IImageLabel {
   url: string;
   containerProps?: IContainer;
-  lineWidth?: number;
-  lineColor?: string;
+  lineProps?: ILine;
   pointProps?: IPoint;
   getPoints?: (points: Point[]) => void;
 }
@@ -35,8 +39,7 @@ let currentSelectedPointIndex = -1;
 
 const ImageLabel: React.FC<IImageLabel> = ({
   url,
-  lineWidth = 2,
-  lineColor = "red",
+  lineProps,
   containerProps,
   pointProps,
   getPoints,
@@ -258,7 +261,7 @@ const ImageLabel: React.FC<IImageLabel> = ({
       ctx.arc(
         point.x * scale,
         point.y * scale,
-        pointProps?.width || 10,
+        pointProps?.size || 10,
         0,
         2 * Math.PI
       );
@@ -267,8 +270,8 @@ const ImageLabel: React.FC<IImageLabel> = ({
       ctx.closePath();
     });
     ctx.beginPath();
-    ctx.lineWidth = lineWidth;
-    ctx.strokeStyle = lineColor;
+    ctx.lineWidth = lineProps?.width || 2;
+    ctx.strokeStyle = lineProps?.color || "red";
     // 线
     points.forEach(({ x, y }) => {
       ctx.lineTo(x * scale, y * scale);
