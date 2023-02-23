@@ -1,6 +1,6 @@
 # label-image
 
-React 图片内容标记组件，用于圈出图片四边形内容并获取标记点坐标。
+React 图片内容标记组件，用于圈出图片四边形内容并获取标记点坐标。**Vue**版本请参考组件[vue-image-label](https://github.com/nhdeng/vue-image-label)
 
 ## 预览
 
