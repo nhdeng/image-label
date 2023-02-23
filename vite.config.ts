@@ -1,11 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import libCss from 'vite-plugin-libcss';
+import dts from 'vite-plugin-dts'
 import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), libCss()],
+  plugins: [react(), libCss(), dts({
+    beforeWriteFile: (filePath, content) => ({
+      filePath: filePath.replace(/src/, ''),
+      content
+    })
+  })],
   build: {
     lib: {
       entry: resolve(__dirname, "packages/image-label.tsx"),

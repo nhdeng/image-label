@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LabelImage from "@dengnanhao/image-label";
+import LabelImage from "../packages/image-label";
 import "./App.css";
 
 type Point = {
