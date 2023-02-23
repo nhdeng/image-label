@@ -1,0 +1,55 @@
+{
+  "name": "@dengnanhao/image-label",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "author": "dengnanhao <19856535725@163.com>",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --declaration --emitDeclarationOnly",
+    "preview": "vite preview"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vite-plugin-libcss": "^1.0.5"
+  },
+  "description": "React 图片内容标记组件，用于圈出图片上四边形区域并获取标记点坐标。",
+  "main": "./dist/image-label.umd.js",
+  "module": "./dist/image-label.es.js",
+  "./dist/style.css": "./dist/style.css",
+  "exports": {
+    ".": {
+      "import": "./dist/image-label.es.js",
+      "require": "./dist/image-label.umd.js"
+    }
+  },
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhdeng/image-label.git"
+  },
+  "keywords": [
+    "label-image",
+    "react-component",
+    "component",
+    "typescript"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nhdeng/image-label/issues"
+  },
+  "homepage": "https://github.com/nhdeng/image-label#readme"
+}
