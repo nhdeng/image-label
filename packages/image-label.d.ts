@@ -16,12 +16,13 @@ interface ILine {
     width?: number;
     color?: string;
 }
-interface IImageLabel {
+interface IImageLabel extends React.HTMLAttributes<HTMLDivElement> {
     url: string;
     containerProps?: IContainer;
     lineProps?: ILine;
     pointProps?: IPoint;
     getPoints?: (points: Point[]) => void;
+    fullScreen?: boolean;
 }
 declare const ImageLabel: React.FC<IImageLabel>;
 export default ImageLabel;
