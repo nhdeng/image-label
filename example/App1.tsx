@@ -35,7 +35,7 @@ function App() {
         ref={ref}
         getPoints={getPoints}
         // fullScreen={true}
-        url="https://stbrain.kjt.zj.gov.cn/Documents/ac681331-de00-4fcb-b082-27159b32f6c5/Instruments/43%20%E7%A2%B3%E7%A1%AB%E5%88%86%E6%9E%90%E4%BB%AA.jpg"
+        url="https://hddata.cn/image/banner/591117aeb51902c8b5e4f6ea50ccc0e7.png"
       />
       <div className="footer">
         <h3 onClick={() => set()}>固定点设置</h3>

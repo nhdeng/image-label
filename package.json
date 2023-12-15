@@ -1,7 +1,7 @@
 {
   "name": "@dengnanhao/image-label",
   "private": false,
-  "version": "1.0.15",
+  "version": "1.0.21",
   "type": "module",
   "author": "dengnanhao <19856535725@163.com>",
   "scripts": {

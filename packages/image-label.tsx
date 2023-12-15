@@ -32,7 +32,7 @@ interface IImageLabel extends React.HTMLAttributes<HTMLDivElement> {
   containerProps?: IContainer;
   lineProps?: ILine;
   pointProps?: IPoint;
-  getPoints?: (points: Point[]) => void;
+  getPoints?: (pInfo: any) => void;
   fullScreen?: boolean;
 }
 
@@ -303,18 +303,21 @@ const ImageLabel: React.FC<IImageLabel> = forwardRef(
     const getOriginPoints = () => {
       if (!points.length) {
         console.error("画布暂时没有初始化");
-        return [];
+        return {
+          points,
+          originPoints: [],
+        };
       }
-      return points.map(({ x, y }) => ({
-        x: Number((x / __img_scale_).toFixed(0)),
-        y: Number((y / __img_scale_).toFixed(0)),
-      }));
+      return {
+        points,
+        originPoints: points.map(({ x, y }) => ({
+          x: Math.floor(Number(x / __img_scale_)),
+          y: Math.floor(Number(y / __img_scale_)),
+        })),
+      };
     };
-    const handleSetPoints = (ps: Point[]) => {
-      points = ps.map(({ x, y }) => ({
-        x: x * __img_scale_,
-        y: y * __img_scale_,
-      }));
+    const handleSetPoints = (ps: Point[] = []) => {
+      points = ps;
       loadPictureAndInitCanvas();
     };
 
@@ -333,12 +336,12 @@ const ImageLabel: React.FC<IImageLabel> = forwardRef(
           0,
           2 * Math.PI
         );
-        ctx.fillStyle = pointProps?.color || "red";
+        ctx.fillStyle = pointProps?.color || "rgba(255,0,0,0.5)";
         ctx.fill();
         ctx.closePath();
       });
       ctx.beginPath();
-      ctx.setLineDash([10, 5]);
+      // ctx.setLineDash([10, 5]);
       ctx.lineWidth = lineProps?.width || 2;
       ctx.strokeStyle = lineProps?.color || "red";
       // 线

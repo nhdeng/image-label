@@ -8,10 +8,6 @@ interface IPoint {
     size?: number;
     color?: string;
 }
-type Point = {
-    x: number;
-    y: number;
-};
 interface ILine {
     width?: number;
     color?: string;
@@ -21,7 +17,7 @@ interface IImageLabel extends React.HTMLAttributes<HTMLDivElement> {
     containerProps?: IContainer;
     lineProps?: ILine;
     pointProps?: IPoint;
-    getPoints?: (points: Point[]) => void;
+    getPoints?: (pInfo: any) => void;
     fullScreen?: boolean;
 }
 declare const ImageLabel: React.FC<IImageLabel>;
